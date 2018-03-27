@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { addReminder, deleteReminder } from './actions';
 import './App.css';
 
@@ -9,11 +10,13 @@ class App extends Component {
         super(props);
         this.state = {
             text: '',
+            dueDate: '',
         };
     }
 
     addRemider() {
-        this.props.addReminder(this.state.text);
+        console.log('this.state.dueDate', this.state.dueDate);
+        this.props.addReminder(this.state.text, this.state.dueDate);
     }
 
     deleteReminder(id) {
@@ -29,7 +32,10 @@ class App extends Component {
                     reminders.map(reminder => {
                         return (
                             <li key={reminder.id}>
-                                <div>{reminder.text}</div>
+                                <div>
+                                    <div>{reminder.text}</div>
+                                    <div><em>{moment(new Date(reminder.dueDate)).fromNow()}</em></div>
+                                </div>
                                 <div
                                     onClick={() => this.deleteReminder(reminder.id)}
                                 >
@@ -52,6 +58,10 @@ class App extends Component {
                     <input
                         placeholder="Enter text"
                         onChange={event => this.setState({ text: event.target.value })}
+                    />
+                    <input
+                        type="datetime-local"
+                        onChange={event => this.setState({dueDate: event.target.value})}
                     />
                     <button
                         type="button"
