@@ -1,5 +1,5 @@
 import { ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS } from '../const';
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies'
+import { bake_cookie, read_cookie } from 'sfcookies'
 
 const reminder = (action) => {
     let { text, dueDate } = action;
