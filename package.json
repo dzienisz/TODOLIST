@@ -1,6 +1,6 @@
 {
   "name": "react-redux-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "homepage": "https://dzienisz.github.io/TODOLIST",
   "scripts": {
@@ -10,8 +10,7 @@
     "eject": "react-scripts eject",
     "release": "standard-version",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
-    "release": "standard-version"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "moment": "^2.24.0",
